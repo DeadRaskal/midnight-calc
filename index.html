@@ -80,8 +80,8 @@
     <option value="6500">Lvl 4</option>
     <option value="9500">Lvl 5</option>
   </select><br>
-  <input type="checkbox" id="respray" value="300">
-  <label for="respray">Respray ($300 per color)</label><br>
+  <label for="resprayColors">Respray Colors:</label>
+  <input type="number" id="resprayColors" min="0"><br>
   <input type="checkbox" id="rims" value="600">
   <label for="rims">Rims ($600 per rim)</label><br>
   <input type="checkbox" id="rimColorChange" value="250">
@@ -98,15 +98,15 @@
     var suspension = parseInt(document.getElementById("suspension").value);
     var armour = parseInt(document.getElementById("armour").value);
     var engine = parseInt(document.getElementById("engine").value);
-    var respray = document.getElementById("respray").checked ? parseInt(document.getElementById("respray").value) : 0;
+    var resprayColors = parseInt(document.getElementById("resprayColors").value) || 0;
+    var resprayCost = resprayColors * 300;
     var rims = document.getElementById("rims").checked ? parseInt(document.getElementById("rims").value) : 0;
     var rimColorChange = document.getElementById("rimColorChange").checked ? parseInt(document.getElementById("rimColorChange").value) : 0;
     var windows = document.getElementById("windows").checked ? parseInt(document.getElementById("windows").value) : 0;
 
-    var totalCost = brakes + transmission + suspension + armour + engine + respray + rims + rimColorChange + windows;
+    var totalCost = brakes + transmission + suspension + armour + engine + resprayCost + rims + rimColorChange + windows;
     document.getElementById("totalCost").innerText = "$" + totalCost;
   }
 </script>
 </body>
 </html>
-
