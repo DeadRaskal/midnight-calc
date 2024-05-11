@@ -9,6 +9,7 @@
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    position: relative;
   }
   #logo {
     width: 150px;
@@ -22,6 +23,7 @@
     border: 2px solid white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
   }
   input[type="button"] {
     background-color: #4CAF50;
@@ -35,6 +37,22 @@
     margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
+  }
+  #neonSign {
+    position: absolute;
+    bottom: 0;
+    color: blue;
+    font-size: 0.8rem;
+    padding: 10px;
+    animation: neonGlow 1s ease-in-out infinite alternate;
+  }
+  @keyframes neonGlow {
+    0% {
+      text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue, 0 0 40px blue, 0 0 70px blue, 0 0 80px blue, 0 0 100px blue, 0 0 150px blue;
+    }
+    100% {
+      text-shadow: 0 0 5px blue, 0 0 15px blue, 0 0 20px blue, 0 0 30px blue, 0 0 40px blue, 0 0 50px blue, 0 0 60px blue, 0 0 80px blue;
+    }
   }
 </style>
 </head>
@@ -91,6 +109,7 @@
   <input type="number" id="windows" min="0"><br>
   <input type="button" value="Calculate Total Cost" onclick="calculateCost()">
   <h3>Total Cost: <span id="totalCost">$0</span></h3>
+  <div id="neonSign">Exterior Parts, Cost Extra Depending on The Car, Charges may vary charge at ur own cost!</div>
 </div>
 <script>
   function calculateCost() {
@@ -110,4 +129,5 @@
 </script>
 </body>
 </html>
+
 
