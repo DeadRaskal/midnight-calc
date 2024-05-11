@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Cost Calculator</title>
+<style>
+  body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  #logo {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+  }
+  #calculator {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  input[type="button"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<img id="logo" src="https://cdn.discordapp.com/attachments/1199453849551900876/1236816049136205864/unknown.png?ex=6640a275&is=663f50f5&hm=ba00b26adab2ca454187cf071f2590c70d0a2fc70a3f503e59908bc06b310ba8" alt="Company Logo">
+<div id="calculator">
+  <h2>Employee Cost Calculator</h2>
+  <label for="brakes">Brakes:</label>
+  <select id="brakes">
+    <option value="2500">Street</option>
+    <option value="3700">Sports</option>
+    <option value="4750">Race</option>
+  </select><br>
+  <label for="transmission">Transmission:</label>
+  <select id="transmission">
+    <option value="1600">Street</option>
+    <option value="2000">Sports</option>
+    <option value="2500">Race</option>
+  </select><br>
+  <label for="suspension">Suspension:</label>
+  <select id="suspension">
+    <option value="1400">Lowered</option>
+    <option value="2600">Street</option>
+    <option value="3900">Sport</option>
+    <option value="4750">Comp</option>
+  </select><br>
+  <label for="armour">Armour:</label>
+  <select id="armour">
+    <option value="1750">20%</option>
+    <option value="4000">40%</option>
+    <option value="5000">60%</option>
+    <option value="6500">80%</option>
+    <option value="9000">100%</option>
+  </select><br>
+  <label for="engine">Engine:</label>
+  <select id="engine">
+    <option value="3500">Lvl 2</option>
+    <option value="4500">Lvl 3</option>
+    <option value="6500">Lvl 4</option>
+    <option value="9500">Lvl 5</option>
+  </select><br>
+  <input type="checkbox" id="respray" value="300">
+  <label for="respray">Respray ($300 per color)</label><br>
+  <input type="checkbox" id="rims" value="600">
+  <label for="rims">Rims ($600 per rim)</label><br>
+  <input type="checkbox" id="rimColorChange" value="250">
+  <label for="rimColorChange">Rim Color Change ($250 per rim)</label><br>
+  <input type="checkbox" id="windows" value="350">
+  <label for="windows">Windows (Any Level $350)</label><br>
+  <input type="button" value="Calculate Total Cost" onclick="calculateCost()">
+  <h3>Total Cost: <span id="totalCost">$0</span></h3>
+</div>
+<script>
+  function calculateCost() {
+    var brakes = parseInt(document.getElementById("brakes").value);
+    var transmission = parseInt(document.getElementById("transmission").value);
+    var suspension = parseInt(document.getElementById("suspension").value);
+    var armour = parseInt(document.getElementById("armour").value);
+    var engine = parseInt(document.getElementById("engine").value);
+    var respray = document.getElementById("respray").checked ? parseInt(document.getElementById("respray").value) : 0;
+    var rims = document.getElementById("rims").checked ? parseInt(document.getElementById("rims").value) : 0;
+    var rimColorChange = document.getElementById("rimColorChange").checked ? parseInt(document.getElementById("rimColorChange").value) : 0;
+    var windows = document.getElementById("windows").checked ? parseInt(document.getElementById("windows").value) : 0;
+
+    var totalCost = brakes + transmission + suspension + armour + engine + respray + rims + rimColorChange + windows;
+    document.getElementById("totalCost").innerText = "$" + totalCost;
+  }
+</script>
+</body>
+</html>
+
